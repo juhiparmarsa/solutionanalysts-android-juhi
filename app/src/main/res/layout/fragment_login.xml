@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/fab_margin"
-        tools:context=".ui.signin.FirstFragment">
+        tools:context=".ui.signin.LoginFragment">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivUser"
@@ -36,7 +36,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivUser"
-            app:startIconTint="@android:color/white">
+           >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtUserName"
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_user_name"
                 android:inputType="textCapWords"
+                android:maxLength="@integer/max_username"
                 android:nextFocusDown="@id/edtPassword"
                 android:text="@={viewModel.userName}" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,12 +57,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacingMedium"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvUserName"
-            app:startIconTint="@android:color/white">
+           >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtPassword"
@@ -72,6 +71,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:text="@={viewModel.password}"
+                android:maxLength="@integer/max_password"
                 app:onEditorAction="@{viewModel.onEditorActionListener}" />
         </com.google.android.material.textfield.TextInputLayout>
 

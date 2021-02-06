@@ -37,10 +37,6 @@ fun View.showSnackBar(message: String) {
 *  From android 10, android privacy policy restrict to get use user IMSI and IMEI number
 *  as alternative we can use random UUID
 * */
-fun getIMSINumber(): String {
-    return UUID.randomUUID().toString()
-}
-
 fun getIMEINumber(): String {
     return UUID.randomUUID().toString()
 }

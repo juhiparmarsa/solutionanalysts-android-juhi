@@ -69,4 +69,10 @@
         <item name="android:paddingEnd">40dp</item>
 
     </style>
+
+    <style name="StyleTextInput">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/fontSizeTitle</item>
+    </style>
+
 </resources>

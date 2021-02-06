@@ -24,8 +24,10 @@ fun isValidPassword(password: String?): Int {
 
     if (password == null || password.trim().isEmpty()) {
         return R.string.error_empty_password
-    } else if (!pattern.matcher(password.trim()).matches()) {
-        return R.string.error_valid_password
     }
+
+//    else if (!pattern.matcher(password.trim()).matches()) {
+//        return R.string.error_valid_password
+//    }
     return 0
 }

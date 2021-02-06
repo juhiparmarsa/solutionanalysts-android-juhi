@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 class SignInViewModel(application: Application, private val authRepository: AuthRepository) :
     AndroidViewModel(application) {
 
-
     var userName: MutableLiveData<String> = MutableLiveData<String>().apply { value = "" }
     var password: MutableLiveData<String> = MutableLiveData<String>().apply { value = "" }
 
@@ -34,8 +33,6 @@ class SignInViewModel(application: Application, private val authRepository: Auth
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun onLoginClick(view: View) {
-        print("===onLoginClick====")
-
         if (isNetworkAvailable(getApplication())) {
             KeyboardUtils.hideKeyboard(view)
             if (validateFields()) {
@@ -68,13 +65,10 @@ class SignInViewModel(application: Application, private val authRepository: Auth
 
         val resultPassword = isValidPassword(password.value)
         isValidate = setEditTextError(isValidate, resultPassword, passwordError)
-        print("===isValidate===="+isValidate)
-
         return isValidate
     }
 
     private fun signInApiCall() {
-        val result = MutableLiveData<Int>()
         viewModelScope.launch {
             authRepository.login(
                 loginLiveData,
@@ -82,7 +76,6 @@ class SignInViewModel(application: Application, private val authRepository: Auth
             )
         }
 
-        print("===signInApiCall===="+result)
     }
     //  Clear filed when login successfully
     fun clearInputValue() {

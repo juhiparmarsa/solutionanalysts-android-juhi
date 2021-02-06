@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
 
 import androidx.databinding.BindingAdapter
+
 class AppBinding {
 
     companion object {

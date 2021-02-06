@@ -7,22 +7,28 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.test.imaginato.FirstFragment"
+        android:name="com.test.imaginato.ui.signin.LoginFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment" >
+
+        </action>
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.test.imaginato.SecondFragment"
+        android:name="com.test.imaginato.ui.signin.HomeFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        tools:layout="@layout/fragment_home">
+        <argument
+            android:name="username"
+            app:argType="string" />
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/FirstFragment" >
+
+        </action>
     </fragment>
 </navigation>
