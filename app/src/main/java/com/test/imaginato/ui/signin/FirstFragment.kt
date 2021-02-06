@@ -4,27 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.test.imaginato.R
 import com.test.imaginato.database.remote.Resource
 import com.test.imaginato.databinding.FragmentLoginBinding
 import com.test.imaginato.ui.signin.viewmodel.SignInViewModel
 import com.test.imaginato.utils.ProgressUtils
 import com.test.imaginato.utils.showSnackBar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
-    private val viewModel by viewModel<SignInViewModel>()
+    private val viewModel:SignInViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +30,8 @@ class FirstFragment : Fragment() {
         val signInBinding: FragmentLoginBinding = DataBindingUtil.inflate<FragmentLoginBinding>(LayoutInflater.from(container?.context), R.layout.fragment_login, container, false)
         signInBinding.viewModel = viewModel
         signInBinding.lifecycleOwner = this
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmentA
+        initializeComponent(signInBinding.getRoot())
         return signInBinding.getRoot()
     }
 
